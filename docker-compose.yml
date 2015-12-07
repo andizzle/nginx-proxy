@@ -18,8 +18,9 @@ consul:
     SERVICE_TAGS: consul.dockerhost
 registrator:
   command: consul://consul:8500
-  image: progrium/registrator:latest
+  image: gliderlabs/registrator:latest
   links:
     - consul
   volumes:
+    - "/var/lib/boot2docker:/var/lib/boot2docker"
     - "/var/run/docker.sock:/tmp/docker.sock"
